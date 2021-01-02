@@ -39,7 +39,6 @@ out/
 
 
 ### frontend ###
-frontend/public/
 frontend/node_modules/
 frontend/node/
 frontend/.env
