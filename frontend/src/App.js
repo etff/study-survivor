@@ -3,6 +3,7 @@ import MyRouter from "./routes/Router";
 import "antd/dist/antd.css";
 import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";
+import "./assets/custom.scss";
 import store, { history } from "./store";
 
 const App = () => {

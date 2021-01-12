@@ -1,16 +1,17 @@
 import React, { Fragment } from "react";
 import { Layout } from "antd";
-import { Content, Footer, Header } from "antd/lib/layout/layout";
 import Bottom from "../components/Bottom";
+import NavBar from "../components/NavBar";
+import Main from "../components/Main";
 
 const MyRouter = () => {
   return (
     <>
       <Layout>
-        <Header />
-        <Content>
-          <h1>Hello Body</h1>
-        </Content>
+        <NavBar />
+
+        <Main />
+
         <Bottom />
       </Layout>
     </>
