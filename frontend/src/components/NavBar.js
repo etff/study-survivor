@@ -5,27 +5,28 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Header className="header">
+    <Header>
+      <div className="logo" />
       <Row>
         <Col span={20}>
-          <div className="logo" />
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
             <Menu.Item key="1">
-              <Link to="/">nav 1</Link>
+              <Link to="/main">nav 1 </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to="/nav2">nav 1</Link>
+              {" "}
+              <Link to="/study">STUDY</Link>
             </Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
           </Menu>
         </Col>
         <Col span={4}>
           <Menu theme="dark" mode="horizontal">
-            <Menu.Item key="login">
-              <Link to="/login">login</Link>
+            <Menu.Item key="1">
+              <Link to="/login">LOGIN</Link>
             </Menu.Item>
-            <Menu.Item key="myinfo">
-              <Link to="/myinfo">myinfo</Link>
+            <Menu.Item key="2">
+              <Link to="/myinfo">MY INFO </Link>
             </Menu.Item>
           </Menu>
         </Col>

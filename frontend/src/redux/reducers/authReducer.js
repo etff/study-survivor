@@ -1,9 +1,10 @@
 import {
-  CLEAR_ERROR_FAILURE,
-  CLEAR_ERROR_REQUEST,
-  CLEAR_ERROR_SUCCESS,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  CLEAR_ERROR_REQUEST,
+  CLEAR_ERROR_SUCCESS,
+  CLEAR_ERROR_FAILURE,
 } from "../types";
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   userRole: "",
   errorMsg: "",
   successMsg: "",
+  previousMatchMsg: "",
 };
 
 const authReducer = (state = initialState, action) => {
@@ -32,26 +34,43 @@ const authReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
         isAuthenticated: true,
-        isLoading: true,
+        isLoading: false,
         userId: action.payload.user.id,
         userRole: action.payload.user.role,
         errorMsg: "",
       };
+
+    case LOGIN_FAILURE:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        ...action.payload,
+        token: null,
+        user: null,
+        userId: null,
+        isAuthenticated: false,
+        isLoading: false,
+        userRole: null,
+        errorMsg: action.payload.data.msg,
+      };
+
     case CLEAR_ERROR_REQUEST:
       return {
         ...state,
-        errorMsg: null,
       };
     case CLEAR_ERROR_SUCCESS:
       return {
         ...state,
-        errorMsg: null,
+        errorMsg: "",
+        previousMatchMsg: "",
       };
     case CLEAR_ERROR_FAILURE:
       return {
         ...state,
-        errorMsg: null,
+        errorMsg: "Clear Error Fail",
+        previousMatchMsg: "Clear Error Fail",
       };
+
     default:
       return state;
   }

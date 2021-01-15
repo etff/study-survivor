@@ -1,15 +1,17 @@
 import axios from "axios";
-import { all, call, put, takeEvery, fork } from "redux-saga/effects";
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "../types";
+import { call, put, takeEvery, all, fork } from "redux-saga/effects";
+import { LOGIN_FAILURE, LOGIN_SUCCESS, LOGIN_REQUEST } from "../types";
+
+// Login
 
 const loginUserAPI = (loginData) => {
+  console.log(loginData, "loginData");
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
-
-  return axios.post("/api/authenticate", loginData, config);
+  return axios.post("api/authenticate", loginData, config);
 };
 
 function* loginUser(action) {
