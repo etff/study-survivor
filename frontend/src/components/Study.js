@@ -9,8 +9,8 @@ import {
 
 const { SubMenu } = Menu;
 
-const Main = () => {
-  return <>Main</>;
+const Study = () => {
+  return <>study</>;
 };
 
-export default Main;
+export default Study;
