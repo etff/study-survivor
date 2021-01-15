@@ -1,17 +1,12 @@
 import React, { Fragment } from "react";
 import { Layout } from "antd";
-import { Switch, Route, Redirect } from "react-router-dom";
 import Bottom from "../components/Bottom";
 import NavBar from "../components/NavBar";
 import Main from "../components/Main";
 import Study from "../components/Study";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Content } from "antd/lib/layout/layout";
+import Login from "../components/auth/Login";
 
 const MyRouter = () => {
   return (
@@ -27,6 +22,7 @@ const MyRouter = () => {
               <Route path="/" exact component={Main} />
               <Route path="/main" exact component={Main} />
               <Route path="/study" exact component={Study} />
+              <Route path="/login" exact component={Login} />
               <Redirect from="*" to="/" />
             </Content>
           </Layout>
